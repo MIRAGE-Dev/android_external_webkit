@@ -316,7 +316,7 @@ PassOwnPtr<v8::ScriptData> V8Proxy::precompileScript(v8::Handle<v8::String> code
     static const int minPreparseLength = 1024;
 
     if (!cachedScript || code->Length() < minPreparseLength)
-        return 0;
+        return nullptr;
 
     CachedMetadata* cachedMetadata = cachedScript->cachedMetadata(dataTypeID);
     if (cachedMetadata)
