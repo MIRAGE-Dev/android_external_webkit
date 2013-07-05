@@ -140,12 +140,12 @@ namespace WTF {
 
         if (m_killed) {
             result = MessageQueueTerminated;
-            return nullptr;
+            return 0;
         }
 
         if (timedOut) {
             result = MessageQueueTimeout;
-            return nullptr;
+            return 0;
         }
 
         ASSERT(found != m_queue.end());
@@ -160,9 +160,9 @@ namespace WTF {
     {
         MutexLocker lock(m_mutex);
         if (m_killed)
-            return nullptr;
+            return 0;
         if (m_queue.isEmpty())
-            return nullptr;
+            return 0;
 
         return m_queue.takeFirst();
     }

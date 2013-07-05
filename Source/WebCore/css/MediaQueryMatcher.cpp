@@ -77,15 +77,15 @@ String MediaQueryMatcher::mediaType() const
 PassOwnPtr<MediaQueryEvaluator> MediaQueryMatcher::prepareEvaluator() const
 {
     if (!m_document || !m_document->frame())
-        return nullptr;
+        return 0;
 
     Element* documentElement = m_document->documentElement();
     if (!documentElement)
-        return nullptr;
+        return 0;
 
     CSSStyleSelector* styleSelector = m_document->styleSelector();
     if (!styleSelector)
-        return nullptr;
+        return 0;
 
     RefPtr<RenderStyle> rootStyle = styleSelector->styleForElement(documentElement, 0 /*defaultParent*/, false /*allowSharing*/, true /*resolveForRootDefault*/);
 
