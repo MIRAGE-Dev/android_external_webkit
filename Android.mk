@@ -31,7 +31,7 @@ endif
 # Control SVG compiling in webkit.
 # Default is true unless explictly disabled.
 ifneq ($(ENABLE_SVG),false)
-    ENABLE_SVG = true
+    ENABLE_SVG := true
 endif
 
 # Control complex scripts support compiling in webkit.
@@ -103,6 +103,8 @@ LOCAL_C_INCLUDES := \
 	external/skia/include/images \
 	external/skia/include/ports \
 	external/skia/include/utils \
+	external/skia/src/core \
+	external/skia/src/images \
 	external/skia/src/ports \
 	external/sqlite/dist \
 	frameworks/base/core/jni/android/graphics \
@@ -345,8 +347,8 @@ LOCAL_SHARED_LIBRARIES := \
 	libgui \
 	libicuuc \
 	libicui18n \
+	liblog \
 	libmedia \
-	libmedia_native \
 	libnativehelper \
 	libskia \
 	libsqlite \
@@ -371,7 +373,7 @@ LOCAL_CFLAGS += -DSUPPORT_COMPLEX_SCRIPTS=1
 endif
 
 # Build the list of static libraries
-LOCAL_STATIC_LIBRARIES := libxml2 libxslt libhyphenation libskiagpu libv8
+LOCAL_STATIC_LIBRARIES := libxml2 libxslt libhyphenation libv8
 
 ifeq ($(ENABLE_WEBGL),true)
 LOCAL_STATIC_LIBRARIES += libpng
